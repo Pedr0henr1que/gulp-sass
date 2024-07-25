@@ -13,7 +13,7 @@ function compilaSass(){
 }
 
 function funcaoPadrao(callback){
-    setTimeout(function(){
+    setTimeout(()=> {
         console.log("Executando via gulp");
         callback();
     }, 2000);
@@ -32,6 +32,6 @@ function dizTchau(){
 exports.default = gulp.parallel(funcaoPadrao, dizOi);
 exports.dizOi= dizOi;
 exports.sass = compilaSass;
-exports.watch = function(){
+exports.watch = ()=> {
     gulp.watch('./source/styles/*.scss',{ ignoreInitial: false }, gulp.series(compilaSass));
 }
