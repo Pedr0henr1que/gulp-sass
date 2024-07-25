@@ -1,9 +1,12 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass')(require(sass));
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
 
 function compilaSass(){
-    return gulp.src('./source/syles/*.scss')
-        .pipe(sass())
+    return gulp.src('source/styles/main.scss')
+        .pipe(sass({
+            outputStyle:'compressed'
+        }))
         .pipe(gulp.dest('./build/styles'));
 }
 
@@ -26,4 +29,4 @@ function dizTchau(){
     
 exports.default = gulp.parallel(funcaoPadrao, dizOi);
 exports.dizOi= dizOi;
-exports.Sass = compilaSass;
+exports.sass = compilaSass;
