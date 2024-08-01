@@ -6,7 +6,7 @@ const obfuscate = require('gulp-obfuscate');
 const imagemin = require('gulp-imagemin');
 
 function comprimeImagens(){
-    return gulp.src('./source/imagens/*')
+    return gulp.src('./source/images/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./build/images'))
 }
@@ -26,23 +26,6 @@ function compilaSass(){
         }))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./build/styles'));
-}
-
-function funcaoPadrao(callback){
-    setTimeout(()=> {
-        console.log("Executando via gulp");
-        callback();
-    }, 2000);
-}
-
-function dizOi(callback){
-    console.log("Olá gulp");
-    dizTchau();
-    callback();
-}
-
-function dizTchau(){
-    console.log("Tchau Gulp");
 }
     
 exports.default = gulp.parallel(funcaoPadrao, dizOi);
